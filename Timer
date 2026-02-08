@@ -1,0 +1,37 @@
+public class NewBehaviourScript : MonoBehaviour
+{
+    
+    private int minutes;   
+    private int seconds;   
+
+    void Start()
+    {
+        
+        minutes = 1;
+        seconds = 30;
+    }
+
+    void Update()
+    {
+       
+        float deltaTime = Time.deltaTime;
+
+       
+        seconds += (int)(deltaTime * 60);
+
+        
+        if (seconds >= 60)
+        {
+            
+            minutes++;
+            seconds = 0;
+        }
+
+        
+        if (minutes == 0)
+        {
+           
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+}
